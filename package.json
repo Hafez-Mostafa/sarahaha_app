@@ -1,0 +1,35 @@
+{
+  "name": "sarahahapp",
+  "version": "1.0.0",
+  "description": "SarahahAPP back&amp;front MVC",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build:css": "postcss src/styles/tailwind.css -o public/css/style.css",
+    "start": "nodemon index.js"
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "keywords": [],
+  "author": "Mosmoyas",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "bcrypt": "^5.1.1",
+    "connect-mongodb-session": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.5.2",
+    "nodemon": "^3.1.4",
+    "postcss": "^8.4.41",
+    "qrcode": "^1.5.4",
+    "tailwindcss": "^3.4.10"
+  },
+  "devDependencies": {
+    "postcss-cli": "^11.0.0"
+  }
+}

@@ -1,0 +1,75 @@
+<%- include('./shared/header') %>
+
+<div
+  class="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-6 py-12"
+>
+  <div class="text-center w-full max-w-lg">
+    <!-- User Name -->
+    <div class="mb-8">
+      <p class="text-4xl font-extrabold text-gray-900">
+        <%= session.userName %>
+      </p>
+    </div>
+
+    <!-- Share Profile Button -->
+    <div class="relative inline-block">
+      <button
+        id="trigger"
+        class="text-lg font-medium text-white bg-blue-600 px-5 py-3 rounded-full shadow-lg transition transform hover:bg-blue-800 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
+      >
+        Share Profile
+      </button>
+
+      <!-- Popup for Sharing Profile -->
+      <div
+        id="popup"
+        class="hidden absolute top-full mt-4 left-1/2 transform -translate-x-1/2 bg-white p-6 border border-gray-200 rounded-xl shadow-xl max-w-md"
+      >
+        <span class="block text-lg font-semibold text-blue-600 mb-4"
+          >Share Profile:</span
+        >
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <a
+            target="_blank"
+            href="<%= url %>"
+            class="block text-blue-500 hover:underline break-words mb-4"
+          >
+            <%=url%>
+          </a>
+          <div class="flex justify-center">
+            <img class="w-32 h-32" src="<%= qrCodeUrl %>" alt="QR Code" />
+          </div>
+        </div>
+        <button
+          id="closeShare"
+          class="mt-4 text-white bg-red-500 px-5 py-2 rounded-full shadow-lg transition transform hover:bg-red-700 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300"
+          type="button"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages Section -->
+    <div class="w-full max-w-lg p-8 bg-white rounded-xl shadow-xl mt-10">
+      <% if (messages && messages.length > 0) { %>
+      <h3 class="text-2xl font-semibold text-gray-800 text-center mb-6">
+        Your Messages
+      </h3>
+      <div>
+        <% for(let i = 0; i < messages.length; i++) { %>
+        <div class="mb-4 p-5 bg-gray-100 rounded-lg shadow-md">
+          <p class="text-gray-700"><%= messages[i].content %></p>
+        </div>
+        <% } %>
+      </div>
+      <% } else { %>
+      <h3 class="text-2xl font-semibold text-gray-800 text-center mb-6">
+        You don't have any messages
+      </h3>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('./shared/footer') %>
